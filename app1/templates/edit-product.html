@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Product</title>
+    <style>
+        body {
+            background: rgba(173, 37, 37, 0.3);
+        }
+
+        .heading h1 {
+            color: rebeccapurple;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .selector {
+            text-align: center;
+        }
+
+        .selector select {
+            padding: 8px 50px;
+        }
+
+        input {
+            padding: 8px 50px;
+        }
+
+        #button {
+            padding: 10px 40px;
+            background-color: rgb(35, 212, 35);
+            border-color: lightcoral;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="heading">
+        <h1>Edit Product</h1>
+    </div>
+
+    <div class="product-list-container">
+        <div id="product-list">
+            
+        </div>
+    </div>
+
+    <div class="container">
+        <form action="#" method="post">
+            {% csrf_token %} 
+
+            <!-- <div class="selector">
+                <p>
+                    <label>
+                        <h3>Select Product Categories: </h3>
+                    </label>
+                    <select name="category">
+                        <option value="Earphone">Earphone</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Watch">Watch</option>
+                    </select>
+                </p>
+            </div> -->
+
+
+            <p>
+                <label> Product Name:</label><br>
+                <input type="text" name="Pro_name" value=" {{ product.product_name }} ">
+            </p>
+
+            <p>
+                <label> Description:</label><br>
+                <textarea name="desc" rows="4" cols="50" >{{product.description | safe}}
+                    </textarea>
+            </p>
+
+            <p>
+                <label>Price:</label><br>
+                <input type="number" name="price" value="{{product.price}}">
+            </p>
+            <p>
+                <label> Stocks:</label><br>
+                <input type="number" name="stock"  value="{{product.stocks}}">
+            </p>
+            <p>
+                <label>Colour:</label><br>
+                <input type="text" name="colour"  value="{{product.color}}">
+            </p>
+            <p>
+                <input id="button" type="submit" value="Update">
+            </p>
+
+        </form>
+    </div>
+</body>
+
+</html>

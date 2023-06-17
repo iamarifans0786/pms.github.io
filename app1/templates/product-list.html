@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product-List</title>
+</head>
+<style>
+    body {
+        background: rgba(173, 37, 37, 0.3);
+    }
+
+    .heading h1 {
+        color: rebeccapurple;
+        text-align: center;
+    }
+
+    .earphones-items {
+        border: 1px solid green;
+        width: 60%;
+        margin: 0px auto;
+        padding-left: 20px;
+        margin-top: 10px;
+        background-color: rgba(158, 140, 175, 0.3);
+    }
+
+    .earphones-items h1 {
+        color: red;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', sans-serif;
+    }
+
+    .earphones-items li {
+        margin: 5px 0px;
+    }
+
+    .earphones-items a {
+        text-decoration: none;
+    }
+
+    .earphones-items a:hover {
+        text-decoration: underline;
+        color: green;
+    }
+
+    #del-icon {
+       color: red;
+       margin-right: 50%;
+    }
+    #del-icon a{
+       color: red;
+    }
+    #del-icon a:visited{
+       color: red;
+    }
+    
+    #del-icon a:hover{
+       color:darkred;
+       text-decoration: none;
+    }
+    
+    li{
+        display: flex;
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <div class="heading">
+        <h1>
+            Product List
+        </h1>
+    </div>
+    <div class="earphones-items">
+        <h1>
+            Earphones
+        </h1>
+        <ol>
+
+            {% for product in earphone %}
+
+            <li>
+                <a href="{% url 'earphone_edit' product.id %}"> {{product.product_name}} </a>
+                <span id="del-icon">
+                    <a href="{% url 'earphone_del' product.id %}"> X </a>
+                </span>
+            </li>
+
+            {% endfor %}
+
+        </ol>
+    </div>
+
+    <div class="earphones-items">
+        <h1>
+            Mobiles
+        </h1>
+        <ol>
+
+            {% for product in mobile %}
+
+            <li> 
+                <a href="{% url 'mobile_edit' product.id %}"> {{product.product_name}} </a> 
+                <span id="del-icon">
+                    <a href="{% url 'mobile_del' product.id %}"> X </a>
+                </span>
+            </li>
+
+            {% endfor %}
+
+        </ol>
+    </div>
+
+    <div class="earphones-items">
+        <h1>
+            Watches
+        </h1>
+        <ol>
+
+            {% for product in watch %}
+
+            <li>
+                <a href="{% url 'watch_edit' product.id %}"> {{product.product_name}} </a>
+                <span id="del-icon">
+                    <a href="{% url 'watches_del' product.id %}"> X </a>
+                </span>
+            </li>
+
+            {% endfor %}
+
+        </ol>
+    </div>
+
+</body>
+
+</html>

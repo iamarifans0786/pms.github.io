@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Product</title>
+    <style>
+        body {
+            background: rgba(173, 37, 37, 0.3);
+        }
+
+        .heading h1 {
+            color: rebeccapurple;
+            text-align: center;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .selector {
+            text-align: center;
+        }
+
+        .selector select {
+            padding: 8px 50px;
+        }
+
+        input {
+            padding: 8px 50px;
+        }
+
+        #button {
+            padding: 7px 40px;
+            background-color: chartreuse;
+            border-color: rgb(156, 82, 82);
+            border-radius: 10px;
+        }
+
+        #button:hover {
+            background-color: rgb(207, 24, 162);
+            box-shadow: 0px 0px 5px 2px red;
+        }
+
+        span {
+            position: absolute;
+            left: 10%;
+            top: 25px;
+        }
+
+        span button {
+            padding: 7px 20px;
+            background-color: chartreuse;
+            border-color: rgb(156, 82, 82);
+        }
+
+        span button:hover {
+            background-color: rgb(207, 24, 162);
+            box-shadow: 0px 0px 5px 2px red;
+        }
+
+        button {
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="heading">
+        <h1>Add Product</h1>
+        {% comment %} <span> <a href="#"> <button>Back Dasboard</button></a> </span> {% endcomment %}
+    </div>
+
+    <div class="container">
+        <form action="#" method="post">
+            {% csrf_token %}
+
+            <div class="selector">
+                <p>
+                    <label>
+                        <h3>Select Product Categories: </h3>
+                    </label>
+                    <select name="category">
+                        <option value="Earphone">Earphone</option>
+                        <option value="Mobile">Mobile</option>
+                        <option value="Watch">Watch</option>
+                    </select>
+                </p>
+            </div>
+
+            <p>
+                <label> Product Name:</label><br>
+                <input type="text" name="Pro_name">
+            </p>
+
+            <p>
+                <label> Description:</label><br>
+                <textarea name="desc" rows="4" cols="50">
+                    </textarea>
+            </p>
+
+            <p>
+                <label>Price:</label><br>
+                <input type="number" name="price">
+            </p>
+            <p>
+                <label> Stocks:</label><br>
+                <input type="number" name="stock">
+            </p>
+            <p>
+                <label>Colour:</label><br>
+                <input type="text" name="colour">
+            </p>
+            <p>
+                <input id="button" type="submit" value="Add">
+            </p>
+        </form>
+    </div>
+</body>
+
+</html>
